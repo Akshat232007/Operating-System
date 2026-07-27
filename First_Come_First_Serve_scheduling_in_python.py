@@ -5,12 +5,6 @@ fcfs_processes = [
     [4, 3, 6]
 ]
 
-sjf_processes = [
-    [1, 0, 7, False],
-    [2, 2, 4, False],
-    [3, 4, 1, False],
-    [4, 5, 4, False]
-]
 
 
 def print_cli_gantt(gantt_data):
