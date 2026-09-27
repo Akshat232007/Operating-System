@@ -1,0 +1,26 @@
+import threading
+import time
+
+print('S087 Akshat Halwai')
+def task(name):
+    print(f"{name} started")
+    time.sleep(2)
+    print(f"{name} finished")
+print("\n--- Sequential Execution ---")
+start_time = time.time()
+task("Task 1")
+task("Task 2")
+end_time = time.time()
+sequential_time = round(end_time - start_time, 2)
+print("Sequential Execution Time:", sequential_time, "seconds")
+print("\n--- Threaded Execution ---")
+start_time = time.time()
+t1 = threading.Thread(target=task, args=("Task 1",))
+t2 = threading.Thread(target=task, args=("Task 2",))
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+end_time = time.time()
+threaded_time = round(end_time - start_time, 2)
+print("Threaded Execution Time:", threaded_time, "seconds")
